@@ -7,14 +7,15 @@ function accordion(mode) {
   if (mode === 'multiply') {
     titleSelector.on('click', function () {
 
-      var itemWrapper = $(this).parent();
+      var itemDescription = $(this).next();
 
-      if(itemWrapper.hasClass('active')) {
-        itemWrapper.removeClass('active');
+      if(itemDescription.is(':visible')) {
+        itemDescription.hide();
       }
 
       else {
-        itemWrapper.addClass('active');
+        $('.accordion-description:visible').hide();
+        itemDescription.show();
       }
     });
   }
