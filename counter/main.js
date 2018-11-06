@@ -1,24 +1,26 @@
 $( document ).ready(function() {
-  var initialValue = $('.counter-value').text();
-  var changeValue = initialValue;
+  var initialValue = 10;
+  $('.counter-value').text(initialValue);
+  var stateValue = initialValue;
 
   $('.counter-plus').on('click', function () {
-    var plusCount = changeValue++ + 1;
-    var countValue = plusCount;
-    $('.counter-value').text(countValue);
-  })
+    stateValue++;
+    $('.counter-value').text(stateValue);
+  });
 
   $('.counter-minus').on('click', function () {
-    if (initialValue >= initialValue) {
-      var minusCount = changeValue-- - 1;
-      var countValue = minusCount;
-      $('.counter-value').text(countValue);
+    if (stateValue > initialValue) {
+      stateValue--;
+      $('.counter-value').text(stateValue);
+      console.log(stateValue)
     }
-  })
+  });
 
   $('.counter-reset').on('click', function () {
-    initialValue = initialValue;
-  })
-
+    if (stateValue >= initialValue) {
+      $('.counter-value').text(initialValue);
+      stateValue = initialValue;
+    }
+  });
 });
 
