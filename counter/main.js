@@ -1,26 +1,35 @@
-$( document ).ready(function() {
-  var initialValue = 10;
-  $('.counter-value').text(initialValue);
+function counter(value) {
+
+  var initialValue = value;
+
+  function updateCounterValue (value) {
+    $('.js-counter-value').text(value);
+  }
+
   var stateValue = initialValue;
 
   $('.counter-plus').on('click', function () {
     stateValue++;
-    $('.counter-value').text(stateValue);
+    updateCounterValue (stateValue);
   });
 
   $('.counter-minus').on('click', function () {
     if (stateValue > initialValue) {
       stateValue--;
-      $('.counter-value').text(stateValue);
-      console.log(stateValue)
+      updateCounterValue (stateValue);
     }
   });
 
   $('.counter-reset').on('click', function () {
     if (stateValue >= initialValue) {
-      $('.counter-value').text(initialValue);
+      updateCounterValue (initialValue);
       stateValue = initialValue;
     }
   });
-});
+
+  updateCounterValue (value);
+};
+
+counter(10);
+
 
