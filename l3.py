@@ -9,4 +9,4 @@ print(type(y))
 X = 2
 print(x, X)
 
-TEST = 20 
+TEST = 20
