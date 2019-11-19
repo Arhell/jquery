@@ -16,4 +16,9 @@ for i in 'Hello world':
 else:
   print('\nNo spaces')
 
-
+year = 1900
+while year <= 2020:
+  print(year)
+  year += 1
+else:
+  print('Done')
