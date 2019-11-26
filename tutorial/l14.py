@@ -22,3 +22,15 @@ print(b, id(b))
 a = 15
 print(a, id(a))
 print(b, id(b))
+
+l1 = [1, 2, 3]
+# l2 = l1
+# l2 = l1.copy()
+l2 = l1[:]
+l1.append((5))
+print(l1, id(l2))
+
+r = 10
+print(r)
+del r
+print(r)
