@@ -20,3 +20,21 @@ e = a & b # intersection - letters that are in a and in b
 f = a ^ b # letters a or b, but not both
 
 print(a, b, c, d, e, f, sep='\n')
+
+g = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+g2 = g.copy()
+g.add('melon', 'apple')
+g.remove('apple')
+g.discard('apple')
+if 'apple' in s:
+  print('ok')
+
+g.clear()
+
+print(g, id(g))
+print(g2, id(g2))
+
+i = frozenset('hello')
+
+print(i)
+
