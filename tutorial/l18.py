@@ -38,3 +38,6 @@ i = frozenset('hello')
 
 print(i)
 
+for i in s:
+  print(i)
+
