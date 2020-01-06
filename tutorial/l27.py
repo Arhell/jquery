@@ -26,5 +26,20 @@ while True:
     print('Some text')
 
 
+from datetime import date, datetime
 
+# date
+today = date.today()
+print(today)
+print(today.day)
+
+# datetime
+
+now = datetime.now()
+now2 = datetime.today()
+
+print(now, now2, sep = '\n')
+
+days = ['Mn', 'Ts', 'Wn', 'Tr', 'Fr', 'St', 'Sn']
+print(days[now.weekday()])
 
