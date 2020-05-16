@@ -41,7 +41,7 @@ print(re.findall(pat4, a, flags=re.IGNORECASE))
 print(re.findall(pat5, a, flags=re.IGNORECASE))
 
 def val_email(email):
-  return re.match(r"^.+@(\w+\.){0,2}[a-z]{2,6}$", email, re.IGNORECASE)
+  return bool(re.match(r"^.+@(\w+\.){0,2}[a-z]{2,6}$", email, re.IGNORECASE))
 
 print(val_email('mail@mail.com'))
 
