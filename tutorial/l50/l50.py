@@ -27,11 +27,19 @@ e = Entry(root, width=30, justify='center')
 l.pack()
 e.pack()
 
+colors = {
+    "#ff0000": "red",
+    "#ff7d00": "orange",
+    "#ffff00": "yellow"
+}
+
+for key, value in colors.items():
+    Button(root, bg=key, command=lambda text=value, hex=key: get_color(text, hex)).pack(fill=X)
 
 
-btn_red = Button(root, bg='#ff0000', command=lambda: get_color('red', '#ff0000')).pack(fill=X)
-btn_orange = Button(root, bg='#ff7d00', command=lambda: get_color('orange', '#ff7d00')).pack(fill=X)
-btn_yellow = Button(root, bg='#ffff00', command=lambda: get_color('yellow', '#ffff00')).pack(fill=X)
+# btn_red = Button(root, bg='#ff0000', command=lambda: get_color('red', '#ff0000')).pack(fill=X)
+# btn_orange = Button(root, bg='#ff7d00', command=lambda: get_color('orange', '#ff7d00')).pack(fill=X)
+# btn_yellow = Button(root, bg='#ffff00', command=lambda: get_color('yellow', '#ffff00')).pack(fill=X)
 # btn_orange = Button(root, bg='#ff7d00', command=color_orange).pack(fill=X)
 # btn_yellow = Button(root, bg='#ffff00', command=color_yellow).pack(fill=X)
 
