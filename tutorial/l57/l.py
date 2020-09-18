@@ -1,4 +1,6 @@
 from tkinter import *
+from tkinter import messagebox
+from tkinter import filedialog
 
 root = Tk()
 root.geometry('1000x500+800+300')
@@ -7,7 +9,25 @@ main_menu = Menu(root)
 root.config(menu=main_menu)
 
 def about_program():
-  print('text')
+  messagebox.showinfo(title='title', message='text')
+
+def p_exit():
+  answer = messagebox.askokcancel(title='Exit', message='Close?')
+  if answer:
+    root.destroy()
+
+def opne_file():
+  file_path = filedialog.askopenfilename(title='File', filetypes=(('.txt','*.txt'), ('All', '*.*')))
+  if file_path:
+    t.delete('1.0', END)
+    t.insert('1.0', open(file_path, encoding='utf-8').read())
+
+def save_file():
+  file_path = filedialog.asksaveasfilename(title='File', filetypes=(('.txt', '*.txt'), ('All', '*.*')))
+  f = open(file_path, 'w', encoding='utf-8')
+  text = t.get('1.0', END)
+  f.write(text)
+  f.close()
 
 def change_theme(theme):
   t['bg'] = theme_colors[theme]["text_bg"]
@@ -16,10 +36,10 @@ def change_theme(theme):
   t['selectbackground'] = theme_colors[theme]["select_bg"]
 
 file_menu = Menu(main_menu, tearoff=0)
-file_menu.add_command(label="Open")
-file_menu.add_command(label="Save")
+file_menu.add_command(label="Open", command=opne_file)
+file_menu.add_command(label="Save", command=save_file)
 file_menu.add_separator()
-file_menu.add_command(label="Exit")
+file_menu.add_command(label="Exit", command=p_exit)
 main_menu.add_cascade(label="File", menu=file_menu)
 
 theme_menu = Menu(main_menu, tearoff=0)
