@@ -12,7 +12,22 @@ root.resizable(False, False)
 START_AMOUNT = 1000
 
 def exchange():
-  pass
+  e_usd.delete(0, END)
+  e_eur.delete(0, END)
+  e_rur.delete(0, END)
+  try:
+    e_usd.insert(0, round(float(e_uah.get()) / float(JSON_object[0]['sale']), 2))
+    e_eur.insert(0, round(float(e_uah.get()) / float(JSON_object[1]['sale']), 2))
+    e_rur.insert(0, round(float(e_uah.get()) / float(JSON_object[2]['sale']), 2))
+  except:
+    messagebox.showwarning('Warning', 'Warning')
+
+try:
+  html = urllib.request.urlopen('')
+  data = html.read()
+  JSON_object = json.loads(data)
+except:
+  messagebox.showerror('Error', 'Error')
 
 header_frame = Frame(root)
 header_frame.pack(fill=X)
@@ -76,18 +91,12 @@ l_eur = Label(res_frame, text="text", font="Arial 10 bold")
 l_eur.grid(row=3, column=0)
 e_eur = ttk.Entry(res_frame, justify=CENTER, font="Arial 10")
 e_eur.grid(row=3, column=1, columnspan=2, padx=10, stiky=EW)
-e_eur.insert(0, round(START_AMOUNT / float(JSON_object[0]['sale']), 2))
+e_eur.insert(0, round(START_AMOUNT / float(JSON_object[1]['sale']), 2))
 
 l_rur = Label(res_frame, text="text", font="Arial 10 bold")
 l_rur.grid(row=4, column=0)
 e_rur = ttk.Entry(res_frame, justify=CENTER, font="Arial 10")
 e_rur.grid(row=4, column=1, columnspan=2, padx=10, stiky=EW)
-e_rur.insert(0, round(START_AMOUNT / float(JSON_object[0]['sale']), 2))
-
-
-
-
-
-
+e_rur.insert(0, round(START_AMOUNT / float(JSON_object[2]['sale']), 2))
 
 root.mainloop()
